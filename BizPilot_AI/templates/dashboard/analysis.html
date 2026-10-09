@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3 class="mb-4">Detailed Business & Product Analysis</h3>
+
+{% if kpis %}
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white"><strong>Top Performing Products (Revenue)</strong></div>
+            <div class="card-body p-0">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr><th>Product</th><th>Units Sold</th><th>Revenue</th><th>Profit</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for prod in top_products %}
+                        <tr>
+                            <td>{{ prod.Product }}</td>
+                            <td>{{ prod.Quantity }}</td>
+                            <td>₹{{ prod.Revenue|floatformat:2 }}</td>
+                            <td>₹{{ prod.Profit|floatformat:2 }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white"><strong>Inventory Stock Status & Risks</strong></div>
+            <div class="card-body p-0">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr><th>Product</th><th>Stock Count</th><th>Status Alert</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for item in inventory %}
+                        <tr>
+                            <td>{{ item.Product }}</td>
+                            <td>{{ item.Stock }}</td>
+                            <td><span class="badge bg-{{ item.badge }}">{{ item.status }}</span></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white"><strong>Profit Margin by Category</strong></div>
+            <div class="card-body"><canvas id="catMarginChart"></canvas></div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white"><strong>Profit Trend</strong></div>
+            <div class="card-body"><canvas id="profChart"></canvas></div>
+        </div>
+    </div>
+</div>
+
+{{ chart_cat_margin|json_script:"cat-margin-data" }}
+{{ chart_prof_time|json_script:"prof-data" }}
+
+{% else %}
+<p>No active business metrics available. Please upload a file.</p>
+{% endif %}
+{% endblock %}

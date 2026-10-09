@@ -1,0 +1,16 @@
+"Date,Product,Category,Quantity,Unit_Price,Cost_Price,Revenue,Stock
+2026-01-01,Laptop,Electronics,5,60000,50000,300000,12
+2026-01-02,Mouse,Accessories,20,800,500,16000,105
+2026-01-03,Keyboard,Accessories,15,1500,1000,22500,45
+2026-01-04,Monitor,Electronics,8,12000,9000,96000,8
+2026-01-05,Desk Chair,Furniture,4,8000,5500,32000,15
+2026-01-06,USB Cable,Accessories,50,200,80,10000,200
+2026-01-07,Laptop,Electronics,6,60000,50000,360000,6
+2026-01-08,Headphones,Electronics,12,3000,2000,36000,25
+2026-01-09,MousePad,Accessories,30,300,100,9000,150
+2026-01-10,Desk Chair,Furniture,3,8000,5500,24000,12
+2026-01-11,Monitor,Electronics,5,12000,9000,60000,3
+2026-01-12,USB Cable,Accessories,40,200,80,8000,160
+2026-01-13,Webcam,Electronics,10,2500,1800,25000,18
+2026-01-14,Laptop,Electronics,4,60000,50000,240000,2
+2026-01-15,Headphones,Electronics,8,3000,2000,24000,17"
